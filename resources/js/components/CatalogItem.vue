@@ -1,9 +1,19 @@
 <template>
-    <div class="catalog-item">
-        <img src="" alt="" />
-        <p class="catalog-item-name">{{ product_data.name }}</p>
-        <p class="catalog-item-price">Price: {{ product_data.price }}</p>
-        <button class="cart-btn" @click="addToCart">Add to cart</button>
+    <div>
+        <b-card
+            :title="product_data.name"
+            img-src="https://picsum.photos/600/300/?image=7"
+            img-alt="Image"
+            img-top
+            tag="article"
+            style="max-width: 18rem;"
+            class="mb-2"
+        >
+            <b-card-text>
+                {{ product_data.price }}
+            </b-card-text>
+            <b-button href="#" variant="primary" @click="addToCart">Add to cart</b-button>
+        </b-card>
     </div>
 </template>
 
@@ -31,12 +41,3 @@ export default {
     }
 };
 </script>
-
-<style>
-.catalog-item {
-    flex-basis: 25%;
-    box-shadow: 0 0 8px 0 #e0e0e0;
-    padding: 16px;
-    margin-bottom: 16px;
-}
-</style>
