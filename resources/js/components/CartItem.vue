@@ -1,16 +1,23 @@
 <template>
-    <div class="cart-item">
-        <img src="" alt="" />
-        <div class="cart-item-info">
-            <p>{{ cart_item_data.id }}</p>
-            <p class="cart-item-name">{{ cart_item_data.name }}</p>
-            <p class="cart-item-price">Price: {{ cart_item_data.price }}</p>
-        </div>
-        <div class="cart-item-quantity">
-            <p>Quantity:</p>
-            {{ cart_item_data.quantity }}
-        </div>
-        <button @click="deleteFromCart">Delete</button>
+    <div>
+        <b-card no-body class="overflow-hidden" style="max-width: 540px;">
+            <b-row no-gutters>
+                <b-col md="6">
+                    <b-card-img src="https://picsum.photos/400/400/?image=20" alt="Image" class="rounded-0"></b-card-img>
+                </b-col>
+                <b-col md="6">
+                    <b-card-body :title="cart_item_data.name">
+                        <b-card-text>
+                            Price: {{ cart_item_data.price }}
+                        </b-card-text>
+                        <b-card-text>
+                            Quantity: {{ cart_item_data.quantity }}
+                        </b-card-text>
+                        <b-icon-trash-fill scale="2" @click="deleteFromCart"></b-icon-trash-fill>
+                    </b-card-body>
+                </b-col>
+            </b-row>
+        </b-card>
     </div>
 </template>
 
@@ -33,15 +40,3 @@ export default {
     mounted() {}
 };
 </script>
-
-<style scoped>
-.cart-item {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 0 8px 0 #e0e0e0;
-    padding: 8px;
-    margin-bottom: 8px;
-}
-</style>
