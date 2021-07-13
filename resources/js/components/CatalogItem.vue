@@ -12,7 +12,7 @@
             <b-card-text>
                 {{ product_data.price }}
             </b-card-text>
-            <b-button href="#" variant="primary" @click="addToCart">Add to cart</b-button>
+            <b-button href="#" variant="primary" @click.prevent="addToCart(product_data)">Add to cart</b-button>
         </b-card>
     </div>
 </template>

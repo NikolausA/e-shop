@@ -9,6 +9,8 @@
             :key="item.id"
             :cart_item_data="item"
             @deleteFromCart="deleteFromCart(index)"
+            @increment=increment(index)
+            @decrement=decrement(index)
         />
     </div>
 </template>
@@ -31,7 +33,13 @@ export default {
         }
     },
     methods: {
-        ...mapActions(["DELETE_FROM_CART"]),
+        ...mapActions(["DELETE_FROM_CART", "INCREMENT_QUANTITY", "DECREMENT_QUANTITY"]),
+        increment(index) {
+            this.INCREMENT_QUANTITY(index);
+        },
+        decrement(index) {
+            this.DECREMENT_QUANTITY(index)
+        },
         deleteFromCart(index) {
             this.DELETE_FROM_CART(index);
         }

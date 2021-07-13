@@ -12,6 +12,8 @@
                         </b-card-text>
                         <b-card-text>
                             Quantity: {{ cart_item_data.quantity }}
+                            <b-icon-plus-square-fill scale="1.5" class="mr-2 ml-5" @click="incrementQuantity"></b-icon-plus-square-fill>
+                            <b-icon-dash-square-fill scale="1.5" @click="decrementQuantity"></b-icon-dash-square-fill>
                         </b-card-text>
                         <b-icon-trash-fill scale="2" @click="deleteFromCart"></b-icon-trash-fill>
                     </b-card-body>
@@ -35,6 +37,13 @@ export default {
     methods: {
         deleteFromCart() {
             this.$emit("deleteFromCart");
+        },
+        incrementQuantity() {
+            this.$emit("increment")
+            console.log(this.cart_item_data)
+        },
+        decrementQuantity() {
+            this.$emit("decrement")
         }
     },
     mounted() {}
