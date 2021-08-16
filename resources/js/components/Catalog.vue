@@ -41,7 +41,7 @@ export default {
     mounted() {
         this.GET_PRODUCTS().then(response => {
             if (response.data) {
-                console.log(response.data.product);
+                console.log('everything has come');
             }
         });
     }

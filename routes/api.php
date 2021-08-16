@@ -17,6 +17,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/products', 'App\Http\Controllers\API\ProductController@index');
+Route::get('/products', 'App\Http\Controllers\API\ProductController@index')->name('catalog');
 Route::get('/basket', [API\BasketController::class, 'basket']);
-Route::post('/basket/{product}', [API\BasketController::class, 'addToCart']);
+Route::post('/order', 'App\Http\Controllers\API\BasketController@saveOrder');
+// Route::post('/order', [API\BasketController::class, 'saveOrder']);

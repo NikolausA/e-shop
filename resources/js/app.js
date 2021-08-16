@@ -16,10 +16,6 @@ Vue.use(BootstrapVue);
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin);
 
-~Vue.component(
-    "example-component",
-    require("./components/ExampleComponent.vue").default
-);
 Vue.component("main-wrapper", require("./components/MainWrapper.vue").default);
 
 const app = new Vue({

@@ -1,6 +1,6 @@
 <template>
     <div class="cart">
-        <router-link :to="{ name: 'catalog' }">
+        <router-link :to="{ name: 'catalog'}">
             <div class="link-to-catalog">Back to catalog</div>
         </router-link>
         <h2>Cart</h2>
@@ -12,6 +12,12 @@
             @increment=increment(index)
             @decrement=decrement(index)
         />
+        <router-link :to="{ name: 'order-form', params: { order: cart_data } }">
+            <div>
+                <b-button variant="outline-primary" class="mt-4" @click="alarm(cart_data)">Оформить заказ</b-button>
+            </div>
+        </router-link>
+
     </div>
 </template>
 
@@ -22,7 +28,7 @@ import { mapActions } from "vuex";
 export default {
     name: "cart",
     components: {
-        CartItem
+        CartItem,
     },
     props: {
         cart_data: {
@@ -42,6 +48,9 @@ export default {
         },
         deleteFromCart(index) {
             this.DELETE_FROM_CART(index);
+        },
+        alarm(cart_data) {
+            console.log(cart_data);
         }
     }
 };

@@ -1,9 +1,9 @@
 <template>
     <div>
-        <b-card no-body class="overflow-hidden" style="max-width: 540px;">
+        <b-card no-body class="overflow-hidden" style="max-width: 540px; max-height: 200px;">
             <b-row no-gutters>
                 <b-col md="6">
-                    <b-card-img src="https://picsum.photos/400/400/?image=20" alt="Image" class="rounded-0"></b-card-img>
+                    <b-card-img src="https://picsum.photos/200" alt="Image" class="rounded-0"></b-card-img>
                 </b-col>
                 <b-col md="6">
                     <b-card-body :title="cart_item_data.name">
@@ -40,7 +40,6 @@ export default {
         },
         incrementQuantity() {
             this.$emit("increment")
-            console.log(this.cart_item_data)
         },
         decrementQuantity() {
             this.$emit("decrement")

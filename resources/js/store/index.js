@@ -39,7 +39,7 @@ let store = new Vuex.Store({
             return axios
                 .get("api/products")
                 .then(products => {
-                    commit("SET_PRODUCTS", products.data.product);
+                    commit("SET_PRODUCTS", products.data.products);
                     return products;
                 })
                 .catch(error => {
