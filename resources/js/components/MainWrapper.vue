@@ -49,7 +49,7 @@
                     <a class="nav-link disabled" href="#">Disabled</a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
+            <!-- <form class="form-inline my-2 my-lg-0">
                 <input
                     class="form-control mr-sm-2"
                     type="search"
@@ -62,7 +62,11 @@
                 >
                     Search
                 </button>
-            </form>
+            </form> -->
+            <router-link :to="{name: 'cart'}">
+                <b-icon-cart4 scale="2" class="mr-2"></b-icon-cart4>
+            </router-link>
+
         </div>
         </nav>
         <keep-alive>
