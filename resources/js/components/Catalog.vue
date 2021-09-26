@@ -1,8 +1,8 @@
 <template>
     <div class="catalog">
-        <router-link :to="{ name: 'cart', params: { cart_data: CART } }">
+        <!-- <router-link :to="{ name: 'cart', params: { cart_data: CART } }">
             <div class="link-to-cart">Cart: {{CART.length}}</div>
-        </router-link>
+        </router-link> -->
         <h2 class="catalog-title">Catalog</h2>
         <div class="catalog-list">
             <catalog-item

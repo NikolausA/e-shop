@@ -1,8 +1,8 @@
 <template>
     <div class="cart">
-        <router-link :to="{ name: 'catalog'}">
+        <!-- <router-link :to="{ name: 'catalog'}">
             <div class="link-to-catalog">Back to catalog</div>
-        </router-link>
+        </router-link> -->
         <h2>Cart</h2>
         <cart-item
             v-for="(item, index) in cart_data"

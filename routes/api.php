@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\BasketController;
+use App\Http\Controllers\API\AuthController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,11 +15,20 @@ use App\Http\Controllers\API\BasketController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
+// Route::post('/register', [API\AuthController::class, 'register']);
+
+// Route::post('/register', 'App\Http\Controllers\API\AuthController@register');
 Route::get('/products', 'App\Http\Controllers\API\ProductController@index')->name('catalog');
-Route::get('/basket', [API\BasketController::class, 'basket']);
+
 Route::post('/order', 'App\Http\Controllers\API\BasketController@saveOrder');
+
+Route::group(['namespace' => 'API'], function() {
+    Route::get('/basket', [ BasketController::class, 'basket' ]);
+    Route::post('/register', [ AuthController::class, 'register' ]);
+    Route::post('/login', [ AuthController::class, 'login' ]);
+});
 // Route::post('/order', [API\BasketController::class, 'saveOrder']);
