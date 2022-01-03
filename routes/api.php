@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\BasketController;
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\AdminProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,5 +31,16 @@ Route::group(['namespace' => 'API'], function() {
     Route::get('/basket', [ BasketController::class, 'basket' ]);
     Route::post('/register', [ AuthController::class, 'register' ]);
     Route::post('/login', [ AuthController::class, 'login' ]);
+
+
 });
+
+Route::prefix('admin')->group(function () {
+    Route::apiResource('products', 'App\Http\Controllers\API\AdminProductController');
+});
+
+// Route::resource('admin/products', 'App\Http\Controllers\API\AdminProductController');
+
+// Route::apiResource('admin/products', API\AdminProductController::class);
+
 // Route::post('/order', [API\BasketController::class, 'saveOrder']);

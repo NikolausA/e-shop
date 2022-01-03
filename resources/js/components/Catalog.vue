@@ -41,7 +41,7 @@ export default {
     mounted() {
         this.GET_PRODUCTS().then(response => {
             if (response.data) {
-                console.log('everything has come');
+                console.log('Type of ' + typeof(this.PRODUCTS));
             }
         });
     }
